@@ -1,0 +1,204 @@
+.title2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #335576;
+}
+
+.text1 {
+  font-size: 1rem;
+  color: #335576;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+/***** header ******/
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 1.25rem 6.25rem;
+}
+
+/***** nav ******/
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar__link {
+  padding: 1.25rem 0;
+  margin: 0 1.25rem;
+  font-size: 1rem;
+  color: #335576;
+}
+
+.navbar__link:hover,
+.navbar__link:active,
+.navbar__active {
+  border-bottom: 3px solid #db7a4e;
+}
+
+/**** main destination ****/
+.destination {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../assets/Images/greece.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.destination__name {
+  font-size: 5rem;
+  color: #ffffff;
+  margin: 4rem 8rem;
+}
+
+.destination__package-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.destination__package-card {
+  width: 25%;
+  height: 35vh;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  min-height: 26rem;
+  max-height: 50rem;
+  min-width: 15rem;
+  max-width: 20rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.8rem;
+}
+
+.destination__package-date {
+  width: 90%;
+  border-bottom: black 3px solid;
+  text-align: center;
+  margin-bottom: 1.6rem;
+  margin-top: 0.5rem;
+}
+
+.destination__package-item {
+  width: 90%;
+  background-color: #fefaf5;
+  text-align: center;
+  padding: 0.8rem;
+  margin: 0.8rem 0;
+  font-size: 1.25rem;
+}
+
+/***** footer ******/
+.footer {
+  height: auto;
+  min-height: 10rem;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefaf5;
+}
+
+.footer__item-type {
+  color: #db7a4e;
+  font-size: 0.7rem;
+  margin: 0.7rem 0;
+}
+
+.footer__item-container {
+  margin: 1rem 3rem;
+}
+
+.footer__item-container > .title2 {
+  margin: 1.5rem 0;
+}
+
+.footer__info-container {
+  display: flex;
+  align-items: flex-end;
+  height: 3.4rem;
+}
+
+.footer__item-info {
+  margin: 0rem 1rem;
+}
+
+.footer__item-info:nth-of-type(1),
+.footer__item-logo:nth-of-type(1) {
+  margin-left: 0;
+}
+
+.footer__item-logo {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 1rem;
+}
+
+@media (max-width: 1070px) {
+  .footer__info-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer__item-info:nth-of-type(2),
+  .footer__item-info:nth-of-type(3) {
+    margin-left: 0;
+  }
+  .social {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 900px) {
+  /*header*/
+  .header {
+    flex-direction: column;
+    padding: 1.25rem 4rem;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem 0;
+  }
+  .navbar li {
+    margin: 1.25rem 0;
+  }
+  .navbar__link {
+    margin: 0;
+  }
+
+  /*destination*/
+  .destination {
+    height: fit-content;
+  }
+  .destination__package-table {
+    flex-direction: column;
+  }
+  .destination__package-card {
+    width: 70%;
+  }
+  /*footer*/
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer__item-container {
+    flex-direction: column;
+  }
+  .footer__info-container {
+    display: flex;
+    flex-direction: row;
+  }
+}
