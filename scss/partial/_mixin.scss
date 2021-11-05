@@ -28,60 +28,27 @@
   align-items: $align-items;
 }
 
-@mixin respon1250footer {
-  .footer__container {
-    align-items: flex-start;
-  }
-  .footer__info-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .footer__item-info:nth-of-type(2),
-  .footer__item-info:nth-of-type(3) {
-    margin-left: 0;
+// responsive
+@mixin desktop {
+  @media (max-width: global.$desktop) {
+    @content;
   }
 }
 
-@mixin respon800header {
-  .header {
-    flex-direction: column;
-    padding: 1.25rem 2rem;
-  }
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 0;
-    & li {
-      margin: 0.5rem 0;
-    }
-    &__link {
-      margin: 0;
-      padding: 0.4rem;
-    }
+@mixin tablet {
+  @media (max-width: global.$tablet) {
+    @content;
   }
 }
 
-@mixin respon800footer {
-  .footer__container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .footer__item-container {
-    flex-direction: column;
-    margin: 0.5rem;
-  }
-  .footer__info-container {
-    display: flex;
-    flex-direction: row;
-  }
-  .footer__item-container > .title2 {
-    margin: 0.5rem 0;
+@mixin tablet-s {
+  @media (max-width: global.$tablet-s) {
+    @content;
   }
 }
 
-@mixin respon700 {
-  .footer__info-container,
-  .footer__item-container {
-    flex-direction: column;
+@mixin mobil {
+  @media (max-width: global.$mobil) {
+    @content;
   }
 }

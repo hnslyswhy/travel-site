@@ -3,7 +3,34 @@
 @use "./partial/mixin";
 @use "./partial/footer";
 
+// header & nav
+@include mixin.tablet {
+  .header {
+    flex-direction: column;
+    padding: 1.25rem 2rem;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    & li {
+      margin: 0.5rem 0;
+    }
+    &__link {
+      margin: 0;
+      padding: 0.4rem;
+    }
+  }
+}
+
 /***** hero ******/
+.title1 {
+  @include mixin.title1;
+}
+.text1 {
+  @include mixin.text1;
+}
+
 .hero {
   display: flex;
   justify-content: space-between;
@@ -12,16 +39,21 @@
   height: 45vh;
   min-height: 33rem;
   background-color: #fefaf5;
-  .title1 {
-    @include mixin.title1;
-  }
-  .text1 {
-    @include mixin.text1;
-  }
+
   &__description {
     @include mixin.flexbox(column, flex-start, stretch);
     width: 50%;
     margin-left: 6rem;
+
+    @include mixin.tablet {
+      width: 80%;
+      margin: 0 auto;
+      margin-left: 4rem;
+    }
+
+    @include mixin.mobil {
+      margin: 0 2.5rem;
+    }
   }
 
   &__image-container {
@@ -29,15 +61,22 @@
     width: 50%;
     margin: 0 auto;
   }
+
   &__image {
     width: 80%;
     max-width: 30rem;
+
+    @include mixin.tablet {
+      display: none;
+    }
   }
+
   &__description .text1 {
     margin: 2.5rem 0;
     margin-right: 1.25rem;
     line-height: 1.5rem;
   }
+
   &__button {
     width: fit-content;
     padding: 0.6rem 2.5rem;
@@ -62,6 +101,17 @@
   &__destination-container {
     @include mixin.flexbox(row, space-around, center);
     margin: 2.5rem;
+
+    @include mixin.desktop {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__destination-link {
+    @include mixin.desktop {
+      margin: 1rem;
+    }
   }
 
   &__destination-link:hover,
@@ -82,23 +132,81 @@
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     position: relative;
+
+    @include mixin.desktop {
+      width: 50%;
+      min-height: 35rem;
+      max-height: 45rem;
+      min-width: 22rem;
+      max-width: 35rem;
+    }
+
+    @include mixin.mobil {
+      width: 80%;
+      min-height: 25rem;
+      max-height: 30rem;
+      min-width: 15rem;
+      max-width: 20rem;
+    }
+  }
+}
+
+.destination1 {
+  background-image: url("../assets/Images/hawaii.jpg");
+}
+.destination2 {
+  background-image: url("../assets/Images/iceland.jpg");
+}
+.destination3 {
+  background-image: url("../assets/Images/greece.jpg");
+}
+
+.destination-name {
+  color: white;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+// footer
+.footer {
+  @include mixin.desktop {
+    &__container {
+      align-items: flex-start;
+    }
+    &__info-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__item-info:nth-of-type(2),
+    &__item-info:nth-of-type(3) {
+      margin-left: 0;
+    }
   }
 
-  .destination1 {
-    background-image: url("../assets/Images/hawaii.jpg");
-  }
-  .destination2 {
-    background-image: url("../assets/Images/iceland.jpg");
-  }
-  .destination3 {
-    background-image: url("../assets/Images/greece.jpg");
+  @include mixin.tablet {
+    &__container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__item-container {
+      flex-direction: column;
+      margin: 0.5rem;
+    }
+    &__info-container {
+      display: flex;
+      flex-direction: row;
+    }
+    &__item-container > .title2 {
+      margin: 0.5rem 0;
+    }
   }
 
-  .destination-name {
-    color: white;
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+  @include mixin.tablet-s {
+    &__info-container,
+    &__item-container {
+      flex-direction: column;
+    }
   }
 }
 
@@ -121,64 +229,5 @@
   }
   100% {
     transform: rotate(0deg);
-  }
-}
-
-/***** responsive ******/
-@media (max-width: 1250px) {
-  /*recommendation*/
-  .recommendation__destination-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .recommendation__destination-link {
-    margin: 1rem;
-  }
-  .recommendation__destination {
-    width: 50%;
-    min-height: 35rem;
-    max-height: 45rem;
-    min-width: 25rem;
-    max-width: 35rem;
-  }
-
-  /*footer*/
-  @include mixin.respon1250footer;
-}
-
-@media (max-width: 800px) {
-  /*header*/
-  @include mixin.respon800header;
-  /*footer*/
-  @include mixin.respon800footer;
-
-  /*hero*/
-  .hero__image {
-    display: none;
-  }
-  .hero__description {
-    width: 80%;
-    margin: 0 auto;
-    margin-left: 4rem;
-  }
-}
-
-@media (max-width: 700px) {
-  @include mixin.respon700;
-}
-
-@media (max-width: 450px) {
-  .recommendation__destination {
-    width: 90%;
-  }
-  .recommendation__destination {
-    width: 80%;
-    min-height: 25rem;
-    max-height: 30rem;
-    min-width: 15rem;
-    max-width: 20rem;
-  }
-  .hero__description {
-    margin: 0 2.5rem;
   }
 }
