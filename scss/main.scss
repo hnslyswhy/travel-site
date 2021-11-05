@@ -44,6 +44,12 @@
     background-color: global.$orange;
     border-radius: 20px;
     color: global.$white;
+    //  animation: shaking 2s linear 0 infinite;
+    animation-name: shaking;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+    //  animation-delay: 2s;
+    animation-iteration-count: infinite;
   }
 }
 
@@ -93,6 +99,28 @@
     position: absolute;
     bottom: 1rem;
     right: 1rem;
+  }
+}
+
+//animation
+@keyframes shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(3deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-3deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 

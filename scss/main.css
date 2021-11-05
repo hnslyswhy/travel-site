@@ -157,6 +157,14 @@ body {
   background-color: #db7a4e;
   border-radius: 20px;
   color: #ffffff;
+  -webkit-animation-name: shaking;
+          animation-name: shaking;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 /***** recommendation ******/
@@ -208,6 +216,47 @@ body {
   right: 1rem;
 }
 
+@-webkit-keyframes shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(3deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-3deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(3deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-3deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 /***** responsive ******/
 @media (max-width: 1250px) {
   /*recommendation*/
