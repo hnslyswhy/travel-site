@@ -3,7 +3,7 @@
 @use "./partial/mixin";
 @use "./partial/footer";
 
-// header & nav
+/**** header & nav  ****/
 @include mixin.tablet {
   .header {
     flex-direction: column;

@@ -105,6 +105,7 @@ body {
   color: #335576;
 }
 
+/**** header & nav  ****/
 @media (max-width: 50rem) {
   .header {
     flex-direction: column;
