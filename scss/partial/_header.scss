@@ -1,0 +1,33 @@
+@use "./global";
+@use "./mixin";
+
+//header
+.header {
+  width: 100%;
+  @include mixin.flexbox(row, space-between, stretch);
+  background-color: global.$white;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding: 1.25rem 6.25rem;
+  .title2 {
+    @include mixin.title2;
+  }
+}
+
+//nav
+.navbar {
+  @include mixin.flexbox;
+  &__link {
+    padding: 1.25rem 0;
+    margin: 0 1.25rem;
+    font-size: 1rem;
+    color: global.$dark;
+  }
+  &__link:hover,
+  &__link:active,
+  &__active {
+    border-bottom: 3px solid global.$orange;
+  }
+}

@@ -1,0 +1,54 @@
+@use "./global";
+@use "./mixin";
+
+/***** footer ******/
+.footer {
+  width: 100%;
+  height: fit-content;
+  min-height: 13rem;
+  @include mixin.flexbox(row, center, center);
+  background-color: global.$lightbg;
+  &__container {
+    width: 80%;
+    @include mixin.flexbox(row, space-around, center);
+  }
+
+  &__item-type {
+    color: global.$orange;
+    font-size: 0.7rem;
+    margin: 0.7rem 0;
+  }
+
+  &__item-container {
+    margin: 1rem 0;
+  }
+
+  &__item-container > .title2 {
+    margin: 1.5rem 0;
+  }
+
+  &__info-container {
+    @include mixin.flexbox(row, flex-start, flex-end);
+  }
+
+  &__item-info {
+    margin: 0rem 1rem;
+  }
+
+  &__item-info:nth-of-type(1),
+  &__item-logo:nth-of-type(1) {
+    margin-left: 0;
+  }
+
+  &__item-logo {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 1rem;
+  }
+  .text1 {
+    @include mixin.text1;
+  }
+  .title2 {
+    @include mixin.title2;
+  }
+}

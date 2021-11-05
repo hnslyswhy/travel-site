@@ -1,0 +1,156 @@
+@use "./partial/global";
+@use "./partial/header";
+@use "./partial/mixin";
+@use "./partial/footer";
+
+/***** hero ******/
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 45vh;
+  min-height: 33rem;
+  background-color: #fefaf5;
+  .title1 {
+    @include mixin.title1;
+  }
+  .text1 {
+    @include mixin.text1;
+  }
+  &__description {
+    @include mixin.flexbox(column, flex-start, stretch);
+    width: 50%;
+    margin-left: 6rem;
+  }
+
+  &__image-container {
+    @include mixin.flexbox(row, center, center);
+    width: 50%;
+    margin: 0 auto;
+  }
+  &__image {
+    width: 80%;
+    max-width: 30rem;
+  }
+  &__description .text1 {
+    margin: 2.5rem 0;
+    margin-right: 1.25rem;
+    line-height: 1.5rem;
+  }
+  &__button {
+    width: fit-content;
+    padding: 0.6rem 2.5rem;
+    background-color: global.$orange;
+    border-radius: 20px;
+    color: global.$white;
+  }
+}
+
+/***** recommendation ******/
+.recommendation {
+  width: 100%;
+  @include mixin.flexbox(column, flex-start, stretch);
+  padding: 2.5rem 5rem;
+
+  &__destination-container {
+    @include mixin.flexbox(row, space-around, center);
+    margin: 2.5rem;
+  }
+
+  &__destination-link:hover,
+  &__destination-link:active {
+    opacity: 0.7;
+    box-shadow: 0px 4px 4px global.$orange;
+  }
+
+  &__destination {
+    width: 20%;
+    height: 35vh;
+    min-height: 28rem;
+    max-height: 40rem;
+    min-width: 19rem;
+    max-width: 35rem;
+    background-size: cover;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+
+  .destination1 {
+    background-image: url("../assets/Images/hawaii.jpg");
+  }
+  .destination2 {
+    background-image: url("../assets/Images/iceland.jpg");
+  }
+  .destination3 {
+    background-image: url("../assets/Images/greece.jpg");
+  }
+
+  .destination-name {
+    color: white;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/***** responsive ******/
+@media (max-width: 1250px) {
+  /*recommendation*/
+  .recommendation__destination-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .recommendation__destination-link {
+    margin: 1rem;
+  }
+  .recommendation__destination {
+    width: 50%;
+    min-height: 35rem;
+    max-height: 45rem;
+    min-width: 25rem;
+    max-width: 35rem;
+  }
+
+  /*footer*/
+  @include mixin.respon1250footer;
+}
+
+@media (max-width: 800px) {
+  /*header*/
+  @include mixin.respon800header;
+  /*footer*/
+  @include mixin.respon800footer;
+
+  /*hero*/
+  .hero__image {
+    display: none;
+  }
+  .hero__description {
+    width: 80%;
+    margin: 0 auto;
+    margin-left: 4rem;
+  }
+}
+
+@media (max-width: 700px) {
+  @include mixin.respon700;
+}
+
+@media (max-width: 450px) {
+  .recommendation__destination {
+    width: 90%;
+  }
+  .recommendation__destination {
+    width: 80%;
+    min-height: 25rem;
+    max-height: 30rem;
+    min-width: 15rem;
+    max-width: 20rem;
+  }
+  .hero__description {
+    margin: 0 2.5rem;
+  }
+}
